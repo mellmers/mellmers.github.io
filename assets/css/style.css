@@ -25,7 +25,7 @@ img.center{
 }
 .full-screen-content {
     width: 1000px;
-    height: 420px;
+    height: 450px;
 
     position:absolute;
     left:0; right:0;
@@ -42,7 +42,7 @@ p.center {
 
 h1,h2,h3,h4{
     color:#171a1c;
-    font-family:'Montserrat',sans-serif;
+    font-family:'Montserrat',sans-serif; /* Schriftart Logo: OCR A Std */
     font-weight:700;
     margin:15px 0 15px 0;
 }
