@@ -1,0 +1,145 @@
+@charset "UTF-8";
+/*--- Colors ---*/
+/*--- Algemein ---*/
+p {
+  color: #333; }
+
+#back-to-top:hover {
+  background-color: #B03407; }
+
+.gray-scale {
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: url(desaturate.svg#greyscale);
+  filter: gray;
+  -webkit-filter: grayscale(1); }
+
+/*--- Navbar---*/
+.navbar-alt .navbar-nav > li > a, .navbar-alt .navbar-nav > li > span {
+  margin-top: 25px;
+  font-size: 18px; }
+
+.navbar-small .navbar-nav > li > a, .navbar-small .navbar-nav > li > span {
+  color: #000;
+  margin: 0;
+  font-size: 14px; }
+
+.navbar-small {
+  background: rgba(245, 144, 10, 0.5); }
+
+#zoom-button {
+  top: 9%;
+  right: 0;
+  position: fixed;
+  z-index: 99;
+  line-height: 2;
+  font-size: 18px;
+  background: rgba(245, 144, 10, 0.5);
+  width: 0; }
+
+button.zoom {
+  border: 0;
+  background: 0;
+  outline: 0; }
+  button.zoom[disabled] {
+    color: #9b9b9b; }
+
+/*--- Revolution-Slider ---*/
+/*- Revolution-Slider alles in Großbuchstaben -*/
+.op-1, .op-2, .op-3 {
+  text-transform: uppercase; }
+
+@media (max-width: 768px) {
+  .home-subheading .op-1 {
+    margin-top: 40px; }
+
+  .home-button .op-1 {
+    margin-top: 20px; }
+
+  .tp-rightarrow.preview4 .tp-arr-allwrapper {
+    left: 0; }
+
+  .tparrows.preview4, .tparrows.preview4:after {
+    width: 20px; } }
+/*- Pic and Caption Anpassung -*/
+.tp-rightarrow.preview4 .tp-arr-allwrapper {
+  left: -130px;
+  width: 200px; }
+  .tp-rightarrow.preview4 .tp-arr-allwrapper .tp-arr-imgholder {
+    width: 200px; }
+  .tp-rightarrow.preview4 .tp-arr-allwrapper .tp-arr-imgholder2 {
+    width: 200px;
+    left: 200px; }
+
+.tparrows.preview4 .tp-arr-titleholder {
+  padding: 0 5px; }
+
+/*- Revolution Slider Pfeile anpassen -*/
+/*Breite*/
+.tparrows.preview4, .tparrows.preview4:after {
+  width: 60px; }
+
+/*--- Section-Abstände ---*/
+#technik, #about, #team, #contact, #partner {
+  padding: 80px 0; }
+
+#portfolio {
+  padding: 20px 0 80px 0;
+  margin-top: 20px; }
+
+/*--- About Section ---*/
+/*--- Kontakt ---*/
+#contact h2, #contact h4, #contact p {
+  color: #fff; }
+
+.home-bottom {
+  bottom: -80px; }
+
+/*--- Map ---*/
+#routenplaner-1 {
+  position: absolute;
+  z-index: 2;
+  top: 22px;
+  width: 50%;
+  margin-left: 8%;
+  opacity: .8; }
+  #routenplaner-1 input {
+    -webkit-transition: all ease .3s;
+    -moz-transition: all ease .3s;
+    -o-transition: all ease .3s;
+    -ms-transition: all ease .3s;
+    transition: all ease .3s; }
+    #routenplaner-1 input:hover, #routenplaner-1 input:focus {
+      box-shadow: 0 -2px #e08627 inset;
+      -moz-box-shadow: 0 -2px #e08627 inset;
+      -webkit-box-shadow: 0 -2px #e08627 inset;
+      -o-box-shadow: 0 -2px #e08627 inset;
+      border: 1px solid #e08627; }
+  #routenplaner-1 input[placeholder] {
+    letter-spacing: 1px; }
+  #routenplaner-1 button {
+    height: 46px; }
+
+/*--- Portfolio ---*/
+/*- Overlay - Icon und Font Anpassung -*/
+.cbp-caption-overlayBottomAlong .cbp-caption-activeWrap {
+  bottom: -100px;
+  height: 100px;
+  background: none repeat scroll 0 0 #282727; }
+
+.cbp img, .cbp-slider img, .cbp-l-project-related-wrap img, .cbp-l-inline img {
+  height: 100%; }
+
+/*--- Contact ---*/
+#contact input.submit:hover, .btn-primary:hover {
+  opacity: .9;
+  background-color: #B03407; }
+
+/*--- Footer ---*/
+footer a:hover {
+  color: #B03407; }
+
+/*# sourceMappingURL=mystyle.css.map */
