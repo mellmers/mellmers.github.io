@@ -1,0 +1,33 @@
+@mixin transition($time:1s,$property:all) {
+  -webkit-transition: $property $time ease;
+  -moz-transition: $property $time ease;
+  -o-transition: $property $time ease;
+  transition: $property $time ease;
+  -moz-backface-visibility: hidden;
+  -webkit-backface-visibility:hidden;
+  backface-visibility: hidden;
+}
+
+@mixin rotate($radius:0deg) {
+  -ms-transform: rotate($radius);
+  -webkit-transform: rotate($radius);
+  -o-transform: rotate($radius);
+  -moz-transform: rotate($radius);
+  transform: rotate($radius);
+}
+
+@mixin scale($number:1) {
+  -ms-transform: scale($number);
+  -webkit-transform: scale($number);
+  -o-transform: scale($number);
+  -moz-transform: scale($number);
+  transform: scale($number);
+}
+
+@mixin translateY($percent) {
+  -ms-transform: translateY($percent);
+  -webkit-transform: translateY($percent);
+  -o-transform: translateY($percent);
+  -moz-transform: translateY($percent);
+  transform: translateY($percent);
+}

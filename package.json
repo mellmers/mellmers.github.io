@@ -1,0 +1,30 @@
+{
+  "name": "Moritz-Ellmers-Website",
+  "version": "0.0.1",
+  "description": "This is the first website from Moritz Ellmers.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mellmers/mellmers.github.io.git"
+  },
+  "keywords": [
+    "web",
+    "design",
+    "webdesign",
+    "moritz",
+    "ellmers",
+    "student",
+    "informatik"
+  ],
+  "author": "Moritz Ellmers <moritz.ellmers@web.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mellmers/mellmers.github.io/issues"
+  },
+  "homepage": "https://github.com/mellmers/mellmers.github.io#readme",
+  "dependencies": {
+  }
+}

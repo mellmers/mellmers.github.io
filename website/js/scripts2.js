@@ -1,5 +1,5 @@
 var zoomLevel = 1;
-var routenplanerForm = "<form action='' class='routenplaner-form' id='routenplaner-1'>" +
+var routenplanerForm = "<form class='routenplaner-form' id='routenplaner'>" +
     "<div class='input-group' class='routenplaner'>" +
     "<input type='text' class='form-control input-lg' placeholder='Route hierher berechnen (Geben Sie hier Ihre Adresse ein)' id='get-route-input'>" +
     "<span class='input-group-btn'><button class='btn btn-primary' type='submit'><i class='icon-magnifier'></i></button></span>" +
@@ -8,6 +8,16 @@ var routenplanerForm = "<form action='' class='routenplaner-form' id='routenplan
 
 (function($) {
     "use strict";
+
+    /**
+     * Scroll to hash, when page loaded with hash
+     */
+
+    if(window.location.hash) {
+        $('html,body').animate({
+            scrollTop: $(window.location.hash).offset().top
+        }, 2000);
+    }
 
     /* -------------------
     Revolution Sliders
@@ -83,18 +93,6 @@ var routenplanerForm = "<form action='' class='routenplaner-form' id='routenplan
     /* -------------------
     Owl Slider callings
     ---------------------*/
-    $("#quote-slider").owlCarousel({
-        autoPlay : false,
-        singleItem : true,
-        pagination: false,
-        navigation: false
-    });
-    $("#owl-testimonials").owlCarousel({
-        autoPlay : true,
-        singleItem : true,
-        pagination: true,
-        navigation: false
-    });
     // AJAX project slider
     $(document).ajaxComplete(function(){
         $("#project-slider").owlCarousel({
@@ -144,20 +142,9 @@ var routenplanerForm = "<form action='' class='routenplaner-form' id='routenplan
             marker:{
                 latLng:[53.224490, 8.670277],
                 options:{ icon: "img/assets/marker.png"},
-                mouseover: function(marker, event, context){
-                    var map = $(this).gmap3("get"),
-                        infowindow = $(this).gmap3({get:{name:"infowindow"}});
-                    if (infowindow){
-                        infowindow.open(map, marker);
-                    } else {
-                        $(this).gmap3({
-                            infowindow:{
-                                anchor:marker,
-                                options:{
-                                    content: "<form>"
-                                }
-                            }
-                        });
+                events:{ // events trigged by markers
+                    click: function(){
+                        this.gmap3('get').setCenter(new google.maps.LatLng(53.224490, 8.670277));
                     }
                 }
             },
@@ -166,51 +153,14 @@ var routenplanerForm = "<form action='' class='routenplaner-form' id='routenplan
                     styles: [ {
                         stylers: [ { "saturation":-90 }, { "lightness": 0 }, { "gamma": 0.0 }]
                     } ],
-                    zoom: 14,
+                    zoom: 15,
                     scrollwheel:false,
-                    draggable: true
+                    draggable: true,
+                    center: [53.228146, 8.668893]
                 }
             }
         })
         .append(routenplanerForm);
-    /* -------------------
-    Twitter Feed
-    ---------------------*/
-    $('.tweet').twittie({
-        username: 'VossenDesign',
-        dateFormat: '%b. %d, %Y',
-        template: '{{tweet}} <div class="date">{{date}}</div>',
-        count: 2,
-        hideReplies: true
-    }); 
-    /* -------------------
-    Animated progress bars
-    ---------------------*/
-    $('.progress-bars').waypoint(function() {
-       $('.progress').each(function(){
-            $(this).find('.progress-bar').animate({
-                width:$(this).attr('data-percent')
-            },800);
-        });
-        }, { offset: '100%',
-             triggerOnce: true 
-    });
-    /* -------------------
-    Fun facts counter
-    ---------------------*/
-    $('.counter').counterUp({
-        delay: 8,
-        time: 1400
-    });
-    /* -------------------
-    Video section lightbox
-    ---------------------*/
-    $('#video-lightbox').cubeportfolio({
-        gridAdjustment: 'alignCenter',
-        lightboxDelegate: '.cbp-lightbox',
-        lightboxGallery: true,
-        lightboxShowCounter: false
-    });
     /* -------------------
      Back to top button popup
      ---------------------*/
@@ -452,6 +402,9 @@ var updateZoom = function(zoom) {
     zoomLevel += zoom;
     $('body').css({ zoom: zoomLevel, '-moz-transform': 'scale(' + zoomLevel + ')' });
 };
+var setZoom = function(zoom) {
+    $('body').css({ zoom: zoom, '-moz-transform': 'scale(' + zoom + ')' });
+};
 
 /**
  * MAP Routenberechnung
@@ -471,7 +424,7 @@ $(".routenplaner-form").on("submit", function(e) {
                 options:{ icon: "img/assets/marker.png"},
                 events:{ // events trigged by markers
                     click: function(){
-                        alert("Here is the default click event");
+                        this.gmap3('get').setCenter(new google.maps.LatLng(53.224490, 8.670277));
                     }
                 }
             },
@@ -504,9 +457,13 @@ $(".routenplaner-form").on("submit", function(e) {
         })
         .append(routenplanerForm);
 
-    $("#routenplaner-1").css("opacity", ".4").on("mouseover", function () {
-        $(this).css("opacity", ".8");
-    });
+    $("#routenplaner").css("opacity", ".4")
+        .mouseenter(function () {
+            $(this).css("opacity", ".8");
+        })
+        .mouseleave(function () {
+            $(this).css("opacity", ".4");
+        });
 });
 
 /* -------------------
@@ -515,159 +472,150 @@ $(".routenplaner-form").on("submit", function(e) {
 (function($, window, document, undefined) {
     "use strict";
 
-    var gridContainer = $('#grid-container'),
-        filtersContainer = $('#filters-container'),
-        wrap, filtersCallback;
-
-
-    /*********************************
-     init cubeportfolio
-     *********************************/
-    gridContainer.cubeportfolio({
-        defaultFilter: '*',
-        animationType: 'slideDelay',
-        gapHorizontal: 20,
-        gapVertical: 20,
-        gridAdjustment: 'responsive',
-        caption: 'overlayBottomAlong',
-        displayType: 'bottomToTop',
-        displayTypeSpeed: 100,
-
-        // lightbox
-        lightboxDelegate: '.cbp-lightbox',
-        lightboxGallery: true,
-        lightboxTitleSrc: 'data-title',
-        lightboxCounter: '<div class="cbp-popup-lightbox-counter">{{current}} of {{total}}</div>',
-
-        // singlePage popup
-        singlePageDelegate: '.cbp-singlePage',
-        singlePageDeeplinking: false,
-        singlePageStickyNavigation: true,
-        singlePageCounter: '<div class="cbp-popup-singlePage-counter">{{current}} of {{total}}</div>',
-        singlePageCallback: function (url, element) {
-            // to update singlePage content use the following method: this.updateSinglePage(yourContent)
-        },
-
-        // singlePageInline
-        singlePageInlineDelegate: '.cbp-singlePageInline',
-        singlePageInlinePosition: 'above',
-        singlePageInlineInFocus: true,
-        singlePageInlineCallback: function (url, element) {
-            // to update singlePageInline content use the following method: this.updateSinglePageInline(yourContent)
-        }
-    });
-
-
-    /*********************************
-     add listener for filters
-     *********************************/
-    if (filtersContainer.hasClass('cbp-l-filters-dropdown')) {
-
-        wrap = filtersContainer.find('.cbp-l-filters-dropdownWrap');
-
-        wrap.on({
-            'mouseover.cbp': function () {
-                wrap.addClass('cbp-l-filters-dropdownWrap-open');
-            },
-            'mouseleave.cbp': function () {
-                wrap.removeClass('cbp-l-filters-dropdownWrap-open');
-            }
-        });
-
-        filtersCallback = function (me) {
-            wrap.find('.cbp-filter-item').removeClass('cbp-filter-item-active');
-
-            wrap.find('.cbp-l-filters-dropdownHeader').text(me.text());
-
-            me.addClass('cbp-filter-item-active');
-
-            wrap.trigger('mouseleave.cbp');
-        };
-
-    } else {
-        filtersCallback = function (me) {
-            me.addClass('cbp-filter-item-active').siblings().removeClass('cbp-filter-item-active');
-        };
-    }
-
-    filtersContainer.on('click.cbp', '.cbp-filter-item', function () {
-
-        var me = $(this);
-
-        if (me.hasClass('cbp-filter-item-active')) {
-            return;
-        }
-        // get cubeportfolio data and check if is still animating (reposition) the items.
-        if (!$.data(gridContainer[0], 'cubeportfolio').isAnimating) {
-            filtersCallback.call(null, me);
-        }
-
-        // filter the items
-        gridContainer.cubeportfolio('filter', me.data('filter'), function () {
-        });
-
-    });
-
-
-    /*********************************
-     activate counter for filters
-     *********************************/
-    gridContainer.cubeportfolio('showCounter', filtersContainer.find('.cbp-filter-item'), function () {
-        // read from url and change filter active
-        var match = /#cbpf=(.*?)([#|?&]|$)/gi.exec(location.href),
-            item;
-        if (match !== null) {
-            item = filtersContainer.find('.cbp-filter-item').filter('[data-filter="' + match[1] + '"]');
-            if (item.length) {
-                filtersCallback.call(null, item);
-            }
-        }
-    });
-
     /********************************
-     add listener for load more
+     imagelightbox plugin
      *******************************/
-    $('.cbp-l-loadMore-button-link').on('click.cbp', function(e) {
-        e.preventDefault();
-        var clicks, me = $(this),
-            oMsg;
-        if (me.hasClass('cbp-l-loadMore-button-stop')) {
-            return;
-        }
-        // get the number of times the loadMore link has been clicked
-        clicks = $.data(this, 'numberOfClicks');
-        clicks = (clicks) ? ++clicks : 1;
-        $.data(this, 'numberOfClicks', clicks);
-        // set loading status
-        oMsg = me.text();
-        me.text('LOADING...');
-        // perform ajax request
-        $.ajax({
-            url: me.attr('href'),
-            type: 'GET',
-            dataType: 'HTML'
-        }).done(function(result) {
-            var items, itemsNext;
-            // find current container
-            items = $(result).filter(function() {
-                return $(this).is('div' + '.cbp-loadMore-block' + clicks);
-            });
-            gridContainer.cubeportfolio('appendItems', items.html(),
-                function() {
-                    // put the original message back
-                    me.text(oMsg);
-                    // check if we have more works
-                    itemsNext = $(result).filter(function() {
-                        return $(this).is('div' + '.cbp-loadMore-block' + (clicks + 1));
-                    });
 
-                    if (itemsNext.length === 0) {
-                        me.text('NO MORE WORKS');
-                        me.addClass('cbp-l-loadMore-button-stop');
-                    }
-                });
-        }).fail(function() {
-            // error
-        });
+    // ACTIVITY INDICATOR
+    var activityIndicatorOn = function() {
+        $( '<div class="imagelightbox-loading"></div>' ).appendTo( 'body' );
+    };
+    var activityIndicatorOff = function() {
+        $( '.imagelightbox-loading' ).remove();
+    };
+
+
+    // OVERLAY
+    var overlayOn = function() {
+        $( '<div class="imagelightbox-overlay"></div>' ).appendTo( 'body' );
+    };
+    var overlayOff = function() {
+        $( '.imagelightbox-overlay' ).remove();
+    };
+
+
+    // CLOSE BUTTON
+    var closeButtonOn = function( instance ) {
+        $( '<div class="imagelightbox-close" title="Schließen (Esc)" />' ).appendTo( 'body' ).on( 'click touchend', function(){ $( this ).remove(); instance.quitImageLightbox(); return false; });
+    };
+    var closeButtonOff = function() {
+        $( '.imagelightbox-close' ).remove();
+    };
+
+    // ARROWS
+    var arrowsOn = function( instance, selector ) {
+        var $arrows = $( '<div class="imagelightbox-arrow imagelightbox-arrow-left"></div><div class="imagelightbox-arrow imagelightbox-arrow-right"></div>' );
+        if(instance.length > 1) {
+            $arrows.appendTo('body');
+            $arrows.on('click touchend', function (e) {
+                e.preventDefault();
+                var $this = $(this),
+                    $target = $(selector + '[href="' + $('#imagelightbox').attr('src') + '"]'),
+                    index = $target.index(selector);
+
+                if ($this.hasClass('imagelightbox-arrow-left')) {
+                    index = index - 1;
+                    if (!$(selector).eq(index).length)
+                        index = $(selector).length;
+                }
+                else {
+                    index = index + 1;
+                    if (!$(selector).eq(index).length)
+                        index = 0;
+                }
+
+                instance.switchImageLightbox(index);
+                return false;
+            });
+        }
+    };
+    var arrowsOff = function() {
+        $( '.imagelightbox-arrow' ).remove();
+    };
+
+    // Initialize Plugin
+    var selector = 'a.lightbox';
+    var instance = $( selector ).imageLightbox({
+        onStart:		function() { setZoom(1); overlayOn(); closeButtonOn( instance ); activityIndicatorOn(); arrowsOn( instance, selector ); },
+        onEnd:			function() { overlayOff(); closeButtonOff(); activityIndicatorOff(); arrowsOff()},
+        onLoadStart: function(){ activityIndicatorOn(); },
+        onLoadEnd:	 	function() { activityIndicatorOff(); $( '.imagelightbox-arrow' ).css( 'display', 'block' ); }
     });
+
+    var selector1 = 'a.lightbox-1', selector2 = 'a.lightbox-2', selector3 = 'a.lightbox-3', selector4 = 'a.lightbox-4', selector5 = 'a.lightbox-5', selector6 = 'a.lightbox-6', selector7 = 'a.lightbox-7', selector8 = 'a.lightbox-8', selector9 = 'a.lightbox-9';
+    var inst1 = $( selector1 ).imageLightbox({
+        onStart:		function() { setZoom(1); overlayOn(); closeButtonOn( inst1 ); activityIndicatorOn(); arrowsOn( inst1, selector1 ); },
+        onEnd:			function() { overlayOff(); closeButtonOff(); activityIndicatorOff(); arrowsOff()},
+        onLoadStart: function(){ activityIndicatorOn(); },
+        onLoadEnd:	 	function() { activityIndicatorOff(); $( '.imagelightbox-arrow' ).css( 'display', 'block' ); }
+    });
+    var inst2 = $( selector2 ).imageLightbox({
+        onStart:		function() { setZoom(1); overlayOn(); closeButtonOn( inst2 ); activityIndicatorOn(); arrowsOn( inst2, selector2 ); },
+        onEnd:			function() { overlayOff(); closeButtonOff(); activityIndicatorOff(); arrowsOff()},
+        onLoadStart: function(){ activityIndicatorOn(); },
+        onLoadEnd:	 	function() { activityIndicatorOff(); $( '.imagelightbox-arrow' ).css( 'display', 'block' ); }
+    });
+    var inst3 = $( selector3 ).imageLightbox({
+        onStart:		function() { setZoom(1); overlayOn(); closeButtonOn( inst3 ); activityIndicatorOn(); arrowsOn( inst3, selector3 ); },
+        onEnd:			function() { overlayOff(); closeButtonOff(); activityIndicatorOff(); arrowsOff()},
+        onLoadStart: function(){ activityIndicatorOn(); },
+        onLoadEnd:	 	function() { activityIndicatorOff(); $( '.imagelightbox-arrow' ).css( 'display', 'block' ); }
+    });
+    var inst4 = $( selector4 ).imageLightbox({
+        onStart:		function() { setZoom(1); overlayOn(); closeButtonOn( inst4 ); activityIndicatorOn(); arrowsOn( inst4, selector4 ); },
+        onEnd:			function() { overlayOff(); closeButtonOff(); activityIndicatorOff(); arrowsOff()},
+        onLoadStart: function(){ activityIndicatorOn(); },
+        onLoadEnd:	 	function() { activityIndicatorOff(); $( '.imagelightbox-arrow' ).css( 'display', 'block' ); }
+    });
+    var inst5 = $( selector5 ).imageLightbox({
+        onStart:		function() { setZoom(1); overlayOn(); closeButtonOn( inst5 ); activityIndicatorOn(); arrowsOn( inst5, selector5 ); },
+        onEnd:			function() { overlayOff(); closeButtonOff(); activityIndicatorOff(); arrowsOff()},
+        onLoadStart: function(){ activityIndicatorOn(); },
+        onLoadEnd:	 	function() { activityIndicatorOff(); $( '.imagelightbox-arrow' ).css( 'display', 'block' ); }
+    });
+    var inst6 = $( selector6 ).imageLightbox({
+        onStart:		function() { setZoom(1); overlayOn(); closeButtonOn( inst6 ); activityIndicatorOn(); arrowsOn( inst6, selector6 ); },
+        onEnd:			function() { overlayOff(); closeButtonOff(); activityIndicatorOff(); arrowsOff()},
+        onLoadStart: function(){ activityIndicatorOn(); },
+        onLoadEnd:	 	function() { activityIndicatorOff(); $( '.imagelightbox-arrow' ).css( 'display', 'block' ); }
+    });
+    var inst7 = $( selector7 ).imageLightbox({
+        onStart:		function() { setZoom(1); overlayOn(); closeButtonOn( inst7 ); activityIndicatorOn(); arrowsOn( inst7, selector7 ); },
+        onEnd:			function() { overlayOff(); closeButtonOff(); activityIndicatorOff(); arrowsOff()},
+        onLoadStart: function(){ activityIndicatorOn(); },
+        onLoadEnd:	 	function() { activityIndicatorOff(); $( '.imagelightbox-arrow' ).css( 'display', 'block' ); }
+    });
+    var inst8 = $( selector8 ).imageLightbox({
+        onStart:		function() { setZoom(1); overlayOn(); closeButtonOn( inst8 ); activityIndicatorOn(); arrowsOn( inst8, selector8 ); },
+        onEnd:			function() { overlayOff(); closeButtonOff(); activityIndicatorOff(); arrowsOff()},
+        onLoadStart: function(){ activityIndicatorOn(); },
+        onLoadEnd:	 	function() { activityIndicatorOff(); $( '.imagelightbox-arrow' ).css( 'display', 'block' ); }
+    });
+    var inst9 = $( selector9 ).imageLightbox({
+        onStart:		function() { setZoom(1); overlayOn(); closeButtonOn( inst9 ); activityIndicatorOn(); arrowsOn( inst9, selector9 ); },
+        onEnd:			function() { overlayOff(); closeButtonOff(); activityIndicatorOff(); arrowsOff()},
+        onLoadStart: function(){ activityIndicatorOn(); },
+        onLoadEnd:	 	function() { activityIndicatorOff(); $( '.imagelightbox-arrow' ).css( 'display', 'block' ); }
+    });
+
+})(jQuery, window, document);
+
+
+/* -------------------
+ Contact
+ ---------------------*/
+(function($, window, document, undefined) {
+    "use strict";
+
+    $("#contactform .radio-buttons input").on("click", function () {
+        var val = $(this).val();
+        $("#contactform .contacting input").prop("required", false);
+        if(val == "radio-phone")
+            $("#phone").prop("required", true);
+        else if(val == "radio-mobile")
+            $("#mobile").prop("required", true);
+        else if(val == "radio-email")
+            $("#email").prop("required", true);
+    });
+
 })(jQuery, window, document);
