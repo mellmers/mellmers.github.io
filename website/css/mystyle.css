@@ -18,6 +18,9 @@ p {
   -webkit-filter: grayscale(1); }
 
 /*--- Navbar---*/
+nav, header {
+  list-style: none; }
+
 .navbar-alt .navbar-nav > li > a, .navbar-alt .navbar-nav > li > span {
   margin-top: 25px;
   font-size: 18px; }
@@ -26,9 +29,11 @@ p {
   color: #000;
   margin: 0;
   font-size: 14px; }
+  .navbar-small .navbar-nav > li > a.current, .navbar-small .navbar-nav > li > span.current {
+    color: #fff !important; }
 
 .navbar-small {
-  background: rgba(245, 144, 10, 0.5); }
+  background: rgba(245, 144, 10, 0.8); }
 
 #zoom-button {
   top: 9%;
@@ -37,7 +42,7 @@ p {
   z-index: 99;
   line-height: 2;
   font-size: 18px;
-  background: rgba(245, 144, 10, 0.5);
+  background: rgba(245, 144, 10, 0.8);
   width: 0; }
 
 button.zoom {
