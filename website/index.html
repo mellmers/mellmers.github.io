@@ -607,7 +607,7 @@
                             <!-- Contact Form will be functional only on your server. Upload to your server when testing. -->
                             <form method="post" action="php/contact-form.php" name="contactform" id="contactform">
                                 <fieldset class="col-md-12">
-                                    <input name="name" type="text" id="name" placeholder="Vor- und Nachname" required />
+                                    <input name="name" type="text" id="name" placeholder="Vor- und Nachname *" required />
                                 </fieldset>
                                 <fieldset class="col-md-12">
                                     <input name="email" type="text" id="address" placeholder="Straße und Hausnummer"/>
@@ -615,7 +615,7 @@
                                     <input name="subject" type="text" id="town" placeholder="Ort"/>
                                 </fieldset>
                                 <fieldset class="col-md-6 contacting">
-                                    <h4>Art der Kontaktaufnahme</h4>
+                                    <h4>Art der Kontaktaufnahme *</h4>
                                     <input name="email" type="text" id="phone" placeholder="Telefon"/>
                                     <input name="subject" type="text" id="mobile" placeholder="Mobil"/>
                                     <input name="subject" type="email" id="email" placeholder="E-Mail-Adresse"/>
@@ -644,7 +644,7 @@
                                     <input name="subject" type="text" id="subject" placeholder="Betreff" />
                                 </fieldset>
                                 <fieldset class="col-md-12">
-                                    <textarea name="comments" cols="40" rows="3" id="comments" placeholder="Ihre Nachricht an uns" required></textarea>
+                                    <textarea name="comments" cols="40" rows="3" id="comments" placeholder="Ihre Nachricht an uns *" required></textarea>
                                 </fieldset>
                                 <div class="col-md-12 recaptcha">
                                     <div class="g-recaptcha" data-sitekey="6LcyxRcTAAAAAM3HezVvu_Qqua2Xxi1KbOHwnzuJ"></div>
@@ -705,49 +705,46 @@
             <!-- Start Footer 1 -->
             <footer id="footer">
 
-                <!-- Footer-Widgets werden bisher nicht benötigt
+                <!-- Start Footer-Widgets -->
 
                 <div class="footer-widgets">
                     <div class="container"> 
-                            
-                            <div class="col-md-3 col-sm-6 col-twitter">
-                                <h4>Latest Tweet</h4>
-                                <div class="tweet"></div> 
-                            </div>
-                            
-                            <div class="col-md-3 col-sm-6 col-footer">
+
+                            <div class="col-sm-5 col-md-4 col-footer">
                                 <div class="subscription">
                                     <h4>Newsletter</h4>
-                                    <p>Subscribe to receive new ideas, inspiration and our weekly news!</p> 
+                                    <p>Melden Sie sich für unseren Newsletter an! Wir schicken Ihnen ausschießlich wichige News über Änderungen oder Neuerungen in unserem Unternehmen.</p>
                                     
                                     <form action="php/subscribe-mailchimp.php" method="post" id="subscribe-form" role="form">
                                         <div class="form-validation alert"></div>
                                         <div class="form-group subscribe-form-input">
-                                            <input type="email" name="email" id="subscribe-form-email" class="footer-subscribe-input" placeholder="Your Email Address" autocomplete="off" />      
-                                            <button class="subscribe-form-submit btn-primary-full" data-loading-text="Loading...">Subscribe</button>
+                                            <input type="email" name="email" id="subscribe-form-email" class="footer-subscribe-input" placeholder="Ihre E-Mail-Adresse" autocomplete="off" />
+                                            <button class="subscribe-form-submit btn-primary-full" data-loading-text="Lädt...">Newsletter anmelden</button>
                                         </div>
                                     </form>
                                     
                                 </div>
                             </div> 
                             
-                            <div class="col-md-3 col-sm-6 col-footer">
+                            <div class="col-sm-offset-2 col-sm-5 col-md-offset-4 col-md-4 col-footer">
                                 <div class="contact">
-                                    <h4>Visit us Today!</h4>
+                                    <h4>Besuchen Sie uns heute!</h4>
                                     <ul class="contact-details">
-                                        <li><p><i class="icon ion-ios-location-outline highlight"></i> 259 W 95th St, New York, United States</p></li>
-                                        <li><p><i class="icon ion-ios-telephone highlight"></i> (123) 456-7891</p></li>
-                                        <li><p><i class="icon ion-android-mail highlight"></i> <a href="vossendesign@gmail.com">vossendesign@gmail.com</a></p></li>
+                                        <li><p><i class="icon ion-ios-location-outline highlight"></i> Lesumer Kirchweg 30, 28790 Schwanewede-Brundorf</p></li>
+                                        <li><p><i class="icon ion-ios-telephone highlight"></i> 04209 919380</p></li>
+                                        <li><p><i class="icon ion-android-mail highlight"></i> <a href="mailto:vr@tischlerei-rosebrock.de">vr@tischlerei-rosebrock.de</a></p></li>
                                     </ul>
                                 </div>
                             </div>
-                            
+
+                        <!--
                             <div class="col-md-3 col-sm-6 col-footer">
                                 <h4>About Vossen</h4>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in euismod nisi.</p>
                                 <p>Cras at ultrices erat, sed vulputate eros. Nunc at augue gravida est fermentum vulputate. Pellentesque et ipsum in dui malesuada tempus. Donec pellentesque.</p>
                             </div>
-                             
+                        -->
+
                     </div>
                 </div>
                 <!-- End Footer Widgets -->
@@ -805,7 +802,7 @@
         <script src="js/plugins/cubeportfolio.min.js"></script>
         <script src="js/plugins/owlcarousel.min.js"></script>
         <script src="js/plugins/tweetie.min.js"></script>
-        <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+        <script src="http://maps.googleapis.com/maps/api/js"></script>
         <script src="js/plugins/gmap3.min.js"></script>
         <script src="js/plugins/wow.min.js"></script>
         <script src="js/plugins/counterup.min.js"></script>

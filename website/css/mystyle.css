@@ -34,6 +34,8 @@ nav, header {
 
 .navbar-small {
   background: rgba(245, 144, 10, 0.8); }
+  .navbar-small .navbar-header .icon-bar {
+    background: #000 !important; }
 
 #zoom-button {
   top: 9%;
