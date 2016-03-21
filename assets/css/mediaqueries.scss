@@ -1,7 +1,6 @@
-@charset "UTF-8";
 /*
 @media (max-width:768px){
-    /*Schriftgr├Â├ƒen
+    /*Schriftgrößen
     h1{font-size:50px;}
     h2{font-size:35px;}
     h3{font-size:25px;}
@@ -11,7 +10,7 @@
     p, a {font-size: 12px;}
 }
 @media (min-width: 768px) {
-    /*Schriftgr├Â├ƒen
+    /*Schriftgrößen
     h1{font-size:50px;}
     h2{font-size:35px;}
     h3{font-size:25px;}
@@ -35,7 +34,7 @@
 
 }
 @media (min-width: 992px) {
-    /*Schriftgr├Â├ƒen
+    /*Schriftgrößen
     h1{font-size:75px;}
     h2{font-size:50px;}
     h3{font-size:30px;}
@@ -45,7 +44,7 @@
     p, a {font-size: 14px;}
 }
 @media (min-width: 1200px) {
-    /*Schriftgr├Â├ƒen
+    /*Schriftgrößen
     h1{font-size:100px;}
     h2{font-size:75px;}
     h3{font-size:50px;}
@@ -55,9 +54,10 @@
     p,a{font-size:16px;}
 }
 */
-@media (max-width: 768px) {
-  .navbar-header img {
-    float: left;
-    margin-left: 35px; } }
 
-/*# sourceMappingURL=mediaqueries.css.map */
+@media (max-width: 768px) {
+    .navbar-header img {
+        float: left;
+        margin-left: 35px;
+    }
+}

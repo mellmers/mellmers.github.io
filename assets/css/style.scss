@@ -1,0 +1,274 @@
+@import "mixins";
+$primary-color: #009688;
+$primary-text-color: rgba(255, 255, 255, 0.85);
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+}
+::-webkit-scrollbar-thumb {
+  border: 0;
+  background-clip: padding-box;
+  @include border-radius();
+  background: rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: inset -1px -1px 0 rgba(0, 0, 0, 0.05), inset 1px 1px 0 rgba(0, 0, 0, 0.05);
+  &:hover, &:active {
+    background: rgba(0, 0, 0, 0.4);
+  }
+}
+::-webkit-scrollbar-track {
+  @include border-radius();
+  background: rgba(0, 0, 0, 0.1);
+  &:hover, &:active {
+    background: rgba(0, 0, 0, 0.2);
+  }
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+body {
+    background-color: #eee;
+    color: #171a1c;
+    font: normal 16px 'Montserrat',monospace;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+}
+.center {
+    text-align: center;
+}
+.left {
+    text-align: left;
+}
+/*Coming Soon Logo zentriert*/
+img.center{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+/*Fuullscreen Einstellungen -- für Coming Soon Seite benötigt*/
+.full-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+.full-screen-content {
+    width: 1000px;
+    height: 600px;
+
+    position:absolute;
+    left:0; right:0;
+    top:0; bottom:0;
+    margin:auto;
+
+    max-width:100%;
+    max-height:100%;
+    overflow:auto;
+}
+/*Paragraph Grundeinstellungen*/
+p {
+    font-size:16px;
+    line-height:1.6em;
+    margin:15px 0 15px 0;
+    color: #7d7d7d;
+}
+/*Wenn Hintergrund dunkel ist, dann Textfarben hell -- Standardmäßig ist der Hintergrund hell und Textfarbe dunkel*/
+.dark p {
+    color:#e2e2e2;
+}
+/*Überschriften Style anpassen*/
+h1,h2,h3,h4,h5,h6 {
+  color:#171a1c;
+  margin:15px 0 15px 0;
+  text-transform: uppercase;
+  font-weight:700;
+}
+h1,h2,h3,h4 {
+  letter-spacing:-0.05em;
+  line-height:0.9em;
+}
+h5,h6 {
+  padding: 10px 0;
+  letter-spacing:0.1em;
+  line-height:1.2em;
+  border-top: solid 1px #171a1c;
+  border-bottom: solid 1px #171a1c;
+}
+.dark h1,.dark h2,.dark h3,.dark h4,.dark h5,.dark h6 {
+  color:#e2e2e2;
+}
+.black h1,.black h2,.black h3,.black h4,.black h5,.black h6 {
+  color:#e2e2e2;
+}
+/* Link Anpassung -- Standardhintergrund */
+a {
+    font-size:16px;
+    line-height:1.6em;
+}
+/* (FOOTER)Link Hover Anpassung für dunklen Hintergrund: Textcolor hell und mit schwacher Einblendung(Transition) */
+a.dark:hover {
+    text-decoration: none;
+    color: #e2e2e2;
+    @include transition(.5s);
+}
+
+/* Link Hover Anpassung für hellen Hintergrund (Standard) */
+a:hover {
+    text-decoration: none;
+    color: #171a1c;
+    @include transition(.5s);
+}
+/* Separator */
+.separator {
+  display: inline-block;
+  width: 50px;
+  height: 2px;
+  background: $primary-color;
+  margin: 15px 0;
+  .separator-small {
+    width: 25px;
+    height: 1px;
+  }
+  .separator-big {
+    width: 100px;
+    height: 3px;
+  }
+}
+/* Footer */
+.footer {
+  position: relative;
+  bottom: 0;
+  margin-top: 20px;
+  padding: 25px 0;
+  width: 100%;
+  height: auto;
+  background-color: #292c2f;
+  -webkit-box-shadow: 0 12px 30px 1px $primary-color;
+  box-shadow: 0 12px 30px 1px $primary-color;
+  .contact {
+    text-align: left;
+    margin: 0 auto;
+    width: 340px;
+    .list-group-item {
+      margin: 5px 0;
+      a {
+        padding: 8px 15px;
+      }
+      .btn {
+        padding: 15px;
+        margin-left: 15px;
+      }
+    }
+    .fa-lg {
+     font-size: 2em;
+      .fa-stack-2x {
+        color: rgba(255, 255, 255, .15);;
+      }
+      .fa-stack-1x {
+        color: $primary-text-color;
+        &:hover {
+          color: $primary-color;;
+        }
+      }
+    }
+  }
+  .about {
+    h4 {
+      color: rgba(255, 255, 255, 0.85);
+    }
+    .gentle {
+      color: #8d9093;
+    }
+    .fa {
+      color: $primary-text-color;
+      font-size: 3em;
+      margin: 0 5px;
+      cursor: pointer;
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+  .btn {
+    margin: 0;
+  }
+  .btn-primary.btn-flat:not(.btn-link) {
+    color: rgba(255, 255, 255, 0.85);
+  }
+}
+/*Seitenabschnitte Padding, da die Überschrift sonst unter der Navbar verschwindet*/
+#start {
+    padding-top: 132px;
+}
+#about {
+    padding-top: 132px;
+}
+#work {
+    padding-top: 132px;
+}
+#contact {
+    padding-top: 132px;
+}
+/*Page Content*/
+.content-wrapper {
+
+}
+/*Links in der Navbar vertikal zentrieren*/
+a.smoothScroll {
+}
+/*Navbar*/
+nav ul li a, nav ul li a:after, nav ul li a:before {
+  @include transition(.5s);
+}
+nav {
+  ul li a {
+    @include transition(.5s);
+    position: relative;
+    z-index: 1;
+    font-size: 22px;
+    margin: 10px;
+    letter-spacing: 1px;
+    &:hover {
+      color: #91640F;
+      &:after {
+        opacity: 1;
+        visibility: visible;
+        height: 100%;
+      }
+    }
+    &:after {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      width: 100%;
+      height: 1px;
+      content: '.';
+      color: transparent;
+      background-color: rgba(255,255,255,0.1);
+      visibility: hidden;
+      opacity: 0;
+      z-index: -1;
+    }
+  }
+  &.navbar.navbar-default.navbar-fixed-top {
+    padding: 10px 0;
+    -webkit-box-shadow: 0 -12px 30px 1px $primary-color;
+    box-shadow: 0 -12px 30px 1px $primary-color;
+    .navbar-header .navbar-toggle {
+      padding: 22px;
+    }
+  }
+}
