@@ -39,6 +39,7 @@ Table of Contents:
 @import "cubeportfolio.min.css";
 @import "color.css";
 @import "myanimations.css";
+@import "mystyle.css";
 
 /*----- Fonts -----*/
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
@@ -201,8 +202,8 @@ p {
     position: absolute;
     top: 50%;
     left: 50%; 
-    margin-top: -25px;
-    margin-left: -60px;
+    margin-top: -12px;
+    margin-left: -12px;
 }
 
 /*----- Typography -----*/
@@ -2120,7 +2121,7 @@ blockquote strong {
 #contact hr { color: inherit; height: 0; margin: 6px 0 6px 0; padding: 0; border: 1px solid #d9d9d9; border-style: none none solid; }
 
 /* Form style */
-#contact input[type="text"], input[type="email"], input[type="number"], select, textarea{
+#contact input[type="text"], input[type="email"], input[type="number"], input[type="tel"], select, textarea{
     font-family: 'Montserrat',sans-serif;
     font-weight: 400;
 	width: 100%; 
@@ -2155,13 +2156,12 @@ textarea {
     color:#555;
 }
 #contact input:focus, textarea:focus, select:focus { 
-	border: 1px solid #f0f0f0; 
-	background-color: #f0f0f0; 
-	color:#1c1c1c; 
+	border: 1px solid #f0f0f0;
+	color:#1c1c1c;
 }
 
 #contact input.submit { 
-    width: auto!important;
+    width: auto;
 	font-family: 'Montserrat', sans-serif;
     font-size: 14px;
     font-weight: 700;
@@ -2223,10 +2223,7 @@ textarea {
     background-position: 10px center;
     background-repeat: no-repeat;
 }
-.loader { 
-	padding: 0 10px; 
-}
-acronym { 
+acronym {
 border-bottom:1px dotted #ccc; 
 }
 #contact-form .contact-details {
@@ -2259,8 +2256,11 @@ border-bottom:1px dotted #ccc;
 
 /*----- Google maps -----*/
 #map {
-    height:600px;
+    height:800px;
+    height: 100vh;
     width:100%;
+    max-height: 100vh;
+    height: calc(100vh - 55px);
 }
 
 /*----- Video Popup Section -----*/
@@ -3412,35 +3412,4 @@ pre {
 .comment-form input, select, textarea {  
     margin: 3px 0px 10px 0;
     -webkit-border-radius: 2px;
-}
-
-
-#masonry .column {
-    padding: 15px; 
-}
-#masonry .blog-column {
-    background: #f3f3f3;
-    -o-box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-}
-@media (min-width:992px) {
-    .column{ width: 33.3%; }
-}
-@media (min-width:564px) and (max-width:992px) {
-    .column { width: 50%; }
-}
-@media (max-width:564px) {
-    .column { width: 100%; }
-}
-#masonry .column-info {
-    padding: 15px; 
-}
-#masonry img {
-    width: 100%; 
-}
-#masonry .blog-column .btn {
-    margin-top: 20px;
-    margin-left: 0;
 }

@@ -24,6 +24,7 @@ p {
   filter: url(desaturate.svg#greyscale);
   filter: gray;
   -webkit-filter: grayscale(1);
+  @include transition(.3s);
 }
 
 /*--- Navbar---*/
@@ -40,6 +41,9 @@ nav, header {
   font-size: 14px;
   &.current {
     color: #fff !important;
+  }
+  &:hover {
+    color: #fff;
   }
 }
 .navbar-small {
@@ -118,7 +122,7 @@ button.zoom {
 /*--- About Section ---*/
 
 /*--- Map ---*/
-.routenplaner-form {
+#routenplaner-form {
   position: absolute;
   z-index: 2;
   top: 22px;
@@ -333,11 +337,11 @@ button.zoom {
       opacity: 0;
       color: white;
       font-size: 120%;
-      @include transition(.35s);
+      @include transition(.3s);
       z-index: 1;
 
       &:hover {
-        font-weight: bolder;
+        color: $highlight-color;;
       }
     }
 
@@ -370,17 +374,41 @@ button.zoom {
 }
 /*--- Contact ---*/
 /*--- Kontakt ---*/
-#contact input.submit:hover, .btn-primary:hover {
+#contact input.submit:hover:not(:disabled), .btn-primary:hover:not(:disabled) {
   opacity: .9;
   background-color: $button-hover-background-color;
 }
 #contact {
+  background-color: rgba(0,0,0,.3);
+  background-blend-mode: darken;
+
   & h2, h4, p {
     color: $text-color-parallax;
   }
 
   h1 {
     line-height: 1.5em;
+  }
+
+  .contact-details {
+    list-style: none;
+    a {
+      color: #fff;
+      &:hover, &:focus {
+        color: $highlight-color;
+      }
+    }
+  }
+
+  input, textarea {
+    @include transition(.4s);
+    &:focus {
+      @include addBoxShadow(0, -4px, 0, 0, $highlight-color, inset);
+    }
+  }
+
+  #contact-alert-wrapper {
+    margin-top: 25px;
   }
 
   .address {
@@ -392,28 +420,17 @@ button.zoom {
     }
   }
 
-  .home-bottom {
-    bottom: -80px;
+  form h4 {
+    margin: 3px 0 24px;
   }
 
-  .radio-buttons {
-    padding-top: 41px;
-    .radio {
-      text-align: left;
-      height: 48px;
-      margin: 0;
-      margin-bottom: 25px;
-      padding: 14px 20px;
-      color: #fff;
+  .sub {
+    color: #fff;
+    line-height: 48px;
+  }
 
-      &:first-child {
-
-      }
-
-      input[type="radio"] {
-
-      }
-    }
+  textarea {
+    padding: 13px;
   }
 
   .recaptcha {
@@ -421,6 +438,10 @@ button.zoom {
       margin: 10px auto 25px;
       display: inline-block;
     }
+  }
+
+  .home-bottom {
+    bottom: -80px;
   }
 }
 /*--- Footer ---*/

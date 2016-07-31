@@ -15,7 +15,14 @@ p {
   -o-filter: grayscale(100%);
   filter: url(desaturate.svg#greyscale);
   filter: gray;
-  -webkit-filter: grayscale(1); }
+  -webkit-filter: grayscale(1);
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  -moz-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden; }
 
 /*--- Navbar---*/
 nav, header {
@@ -31,6 +38,8 @@ nav, header {
   font-size: 14px; }
   .navbar-small .navbar-nav > li > a.current, .navbar-small .navbar-nav > li > span.current {
     color: #fff !important; }
+  .navbar-small .navbar-nav > li > a:hover, .navbar-small .navbar-nav > li > span:hover {
+    color: #fff; }
 
 .navbar-small {
   background: rgba(245, 144, 10, 0.8); }
@@ -99,13 +108,13 @@ button.zoom {
 
 /*--- About Section ---*/
 /*--- Map ---*/
-.routenplaner-form {
+#routenplaner-form {
   position: absolute;
   z-index: 2;
   top: 22px;
   width: 50%;
   margin-left: 8%; }
-  .routenplaner-form input {
+  #routenplaner-form input {
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
@@ -113,15 +122,15 @@ button.zoom {
     -moz-backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden; }
-    .routenplaner-form input:hover, .routenplaner-form input:focus {
+    #routenplaner-form input:hover, #routenplaner-form input:focus {
       box-shadow: 0 -2px #e08627 inset;
       -moz-box-shadow: 0 -2px #e08627 inset;
       -webkit-box-shadow: 0 -2px #e08627 inset;
       -o-box-shadow: 0 -2px #e08627 inset;
       border: 1px solid #e08627; }
-  .routenplaner-form input[placeholder] {
+  #routenplaner-form input[placeholder] {
     letter-spacing: 1px; }
-  .routenplaner-form button {
+  #routenplaner-form button {
     height: 46px; }
 
 /*--- Portfolio ---*/
@@ -310,16 +319,16 @@ button.zoom {
     opacity: 0;
     color: white;
     font-size: 120%;
-    -webkit-transition: all 0.35s ease;
-    -moz-transition: all 0.35s ease;
-    -o-transition: all 0.35s ease;
-    transition: all 0.35s ease;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
     -moz-backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     z-index: 1; }
     .image-list .caption .show-gallery:hover {
-      font-weight: bolder; }
+      color: #e08627; }
   .image-list .caption .caption-overlay {
     position: absolute;
     top: 0;
@@ -361,34 +370,56 @@ button.zoom {
 
 /*--- Contact ---*/
 /*--- Kontakt ---*/
-#contact input.submit:hover, .btn-primary:hover {
+#contact input.submit:hover:not(:disabled), .btn-primary:hover:not(:disabled) {
   opacity: .9;
   background-color: #B03407; }
 
-#contact h2, #contact h4, #contact p {
-  color: #fff; }
-#contact h1 {
-  line-height: 1.5em; }
-#contact .address {
-  font-size: 35px;
-  color: #fff; }
-  #contact .address:hover {
-    color: #e08627;
-    cursor: pointer; }
-#contact .home-bottom {
-  bottom: -80px; }
-#contact .radio-buttons {
-  padding-top: 41px; }
-  #contact .radio-buttons .radio {
-    text-align: left;
-    height: 48px;
-    margin: 0;
-    margin-bottom: 25px;
-    padding: 14px 20px;
+#contact {
+  background-color: rgba(0, 0, 0, 0.3);
+  background-blend-mode: darken; }
+  #contact h2, #contact h4, #contact p {
     color: #fff; }
-#contact .recaptcha > div {
-  margin: 10px auto 25px;
-  display: inline-block; }
+  #contact h1 {
+    line-height: 1.5em; }
+  #contact .contact-details {
+    list-style: none; }
+    #contact .contact-details a {
+      color: #fff; }
+      #contact .contact-details a:hover, #contact .contact-details a:focus {
+        color: #e08627; }
+  #contact input, #contact textarea {
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    -moz-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden; }
+    #contact input:focus, #contact textarea:focus {
+      -o-box-shadow: 0 -4px 0 0 #e08627 inset;
+      -webkit-box-shadow: 0 -4px 0 0 #e08627 inset;
+      -moz-box-shadow: 0 -4px 0 0 #e08627 inset;
+      box-shadow: 0 -4px 0 0 #e08627 inset; }
+  #contact #contact-alert-wrapper {
+    margin-top: 25px; }
+  #contact .address {
+    font-size: 35px;
+    color: #fff; }
+    #contact .address:hover {
+      color: #e08627;
+      cursor: pointer; }
+  #contact form h4 {
+    margin: 3px 0 24px; }
+  #contact .sub {
+    color: #fff;
+    line-height: 48px; }
+  #contact textarea {
+    padding: 13px; }
+  #contact .recaptcha > div {
+    margin: 10px auto 25px;
+    display: inline-block; }
+  #contact .home-bottom {
+    bottom: -80px; }
 
 /*--- Footer ---*/
 footer a:hover {

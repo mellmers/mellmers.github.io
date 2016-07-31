@@ -31,3 +31,10 @@
   -moz-transform: translateY($percent);
   transform: translateY($percent);
 }
+
+@mixin addBoxShadow($h_shadow:0, $v_shadow:0, $blur:0, $spread:0, $color:#000, $inset:null) {
+  -o-box-shadow: $h_shadow $v_shadow $blur $spread $color $inset;
+  -webkit-box-shadow: $h_shadow $v_shadow $blur $spread $color $inset;
+  -moz-box-shadow: $h_shadow $v_shadow $blur $spread $color $inset;
+  box-shadow: $h_shadow $v_shadow $blur $spread $color $inset;
+}

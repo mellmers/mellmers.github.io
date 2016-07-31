@@ -7,14 +7,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Tischlerei Rosebrock</title>
         <meta name="description" content="A Template by Vossen Design"/>
-        <meta name="keywords" content="HTML5, Bootstrap 3, CSS3, javascript, PHP, onepage, responsive, mobile"/>
+        <meta name="keywords" content="Tischlerei, Handwerk, Maschinen, Holz, Wood, Arbeit, Handarbeit, erfolgreich, speziell, individuell, modern"/>
         <meta name="author" content="Moritz Ellmers"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
        	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
         
         <!-- Stlylesheet -->
         <link href="css/style.css" rel="stylesheet" type="text/css" />
-        <link href="css/mystyle.css" rel="stylesheet" type="text/css" />
 
         <script src='https://www.google.com/recaptcha/api.js'></script>
 	</head>
@@ -162,7 +161,7 @@
                                         data-endelementdelay="0.1"
                                         data-endspeed="300"
                                         style="z-index: 4; white-space:normal;">
-                                        <div class="op-2">Fachwissen · Qualität · persönliche beratung · außergewöhnliche sonderanfertigungen</div>
+                                        <div class="op-2">Fachwissen · Qualität · Kompetenter Service · Persönliche Beratung · Einzigartige Sonderanfertigungen</div>
                                     </div>
                                     <!-- Home Button -->
                                     <div class="tp-caption home-button sft fadeout"
@@ -214,7 +213,7 @@
                                         data-endelementdelay="0.1"
                                         data-endspeed="300"
                                         style="z-index: 4; white-space:normal;">
-                                        <div class="op-3">schnell · sicher · persönlich · außergewöhnlich</div>
+                                        <div class="op-3">schnell · sicher · kompetent · persönlich · einzigartig</div>
                                     </div>
                                     <!-- Home Button -->
                                     <div class="tp-caption home-button sft fadeout"
@@ -260,7 +259,7 @@
 
                     <div class="col-md-12 text-center">
                         <h3 class="section-title wow fadeInUp">Unsere Leistungen</h3>
-                        <p class="subheading wow fadeInUp"><span class="highlight">Fachwissen</span> · <span class="highlight">Qualität</span> · <span class="highlight">Persönliche Beratung</span> · <span class="highlight">Außergewöhnliche Sonderanfertigungen</span><br>So sieht Erfolg aus.</p>
+                        <p class="subheading wow fadeInUp"><span class="highlight">Fachwissen</span> · <span class="highlight">Qualität</span> · <span class="highlight">Kompetenter Service</span> · <span class="highlight">Persönliche Beratung</span> · <span class="highlight">Einzigartige Sonderanfertigungen</span><br>So sieht Erfolg aus.</p>
                     </div>
 
                     <!-- Alternative
@@ -595,64 +594,49 @@
                         <h2 class="section-title wow fadeInUp">Kontaktieren Sie uns</h2>
                         <p class="subheading wow fadeInUp">Wir freuen uns, von Ihnen zu hören!</p>
 
-                        <h1 class="wow fadeInUp">Rufen Sie uns an<br />
-                            Telefon: 04209 919380<br>
-                            Fax: 04209 988642
-                        </h1>
+                        <ul class="contact-details wow fadeUpIn">
+                            <li><p><i class="icon ion-ios-telephone highlight"></i> 04209 919380</p></li>
+                            <li><p><i class="icon ion-android-print highlight"></i> 04209 988642</p></li>
+                            <li><p><i class="icon ion-android-mail highlight"></i> <a href="mailto:vr@tischlerei-rosebrock.de">vr@tischlerei-rosebrock.de</a></p></li>
+                        </ul>
 
                         <h4 style="padding: 30px 0">Oder schreiben Sie uns eine Nachricht über unser Kontaktformular</h4>
 
-                        <div class="col-md-6 col-md-offset-3 wow fadeInUp">
-                            <div id="message"></div>
+                        <div class="col-md-8 col-md-offset-2 wow fadeInUp">
                             <!-- Contact Form will be functional only on your server. Upload to your server when testing. -->
-                            <form method="post" action="php/contact-form.php" name="contactform" id="contactform">
-                                <fieldset class="col-md-12">
+                            <form class="clearfix" method="post" action="php/contact-form.php" name="contactform" id="contactform">
+                                <fieldset class="col-md-6">
+                                    <h4>Kontaktinformationen</h4>
                                     <input name="name" type="text" id="name" placeholder="Vor- und Nachname *" required />
-                                </fieldset>
-                                <fieldset class="col-md-12">
-                                    <input name="email" type="text" id="address" placeholder="Straße und Hausnummer"/>
-                                    <input name="subject" type="number" id="zip" placeholder="Postleitzahl"/>
-                                    <input name="subject" type="text" id="town" placeholder="Ort"/>
+                                    <input name="address-street" type="text" id="address" placeholder="Straße und Hausnummer"/>
+                                    <input name="address-plz" type="number" id="zip" placeholder="Postleitzahl"/>
+                                    <input name="address-place" type="text" id="town" placeholder="Ort"/>
                                 </fieldset>
                                 <fieldset class="col-md-6 contacting">
                                     <h4>Art der Kontaktaufnahme *</h4>
-                                    <input name="email" type="text" id="phone" placeholder="Telefon"/>
-                                    <input name="subject" type="text" id="mobile" placeholder="Mobil"/>
-                                    <input name="subject" type="email" id="email" placeholder="E-Mail-Adresse"/>
-                                </fieldset>
-                                <fieldset class="col-md-6 radio-buttons">
-                                    <div class="radio">
-                                        <label>
-                                            <input type="radio" name="contacting" value="radio-phone" required>
-                                            per Telefon
-                                        </label>
-                                    </div>
-                                    <div class="radio">
-                                        <label>
-                                            <input type="radio" name="contacting" value="radio-mobile" required>
-                                            per Mobiltelefon
-                                        </label>
-                                    </div>
-                                    <div class="radio">
-                                        <label>
-                                            <input type="radio" name="contacting" value="radio-email" required>
-                                            per E-Mail
-                                        </label>
-                                    </div>
+                                    <input name="phone" type="tel" id="phone" placeholder="Telefon" required/>
+                                    <input name="mobile" type="tel" id="mobile" placeholder="Mobil" required/>
+                                    <input name="email" type="email" id="email" placeholder="E-Mail-Adresse" required/>
+                                    <span class="sub">* Mindestens eine Kontaktadresse muss hinterlegt sein.</span>
                                 </fieldset>
                                 <fieldset class="col-md-12">
                                     <input name="subject" type="text" id="subject" placeholder="Betreff" />
                                 </fieldset>
                                 <fieldset class="col-md-12">
-                                    <textarea name="comments" cols="40" rows="3" id="comments" placeholder="Ihre Nachricht an uns *" required></textarea>
+                                    <textarea name="message" cols="40" rows="3" id="message" placeholder="Ihre Nachricht an uns *" required></textarea>
+                                </fieldset>
+                                <fieldset class="col-md-12">
+                                    <span class="sub">Felder, die mit deinem (*) Sternchen gekennzeichnet sind, müssen ausgefüllt werden.</span>
                                 </fieldset>
                                 <div class="col-md-12 recaptcha">
-                                    <div class="g-recaptcha" data-sitekey="6LcyxRcTAAAAAM3HezVvu_Qqua2Xxi1KbOHwnzuJ"></div>
+                                    <div class="g-recaptcha" data-sitekey="6LcyxRcTAAAAAM3HezVvu_Qqua2Xxi1KbOHwnzuJ" data-callback="recaptchaCallback"></div>
                                 </div>
                                 <fieldset class="col-md-12">
-                                    <input type="submit" class="submit" id="submit" value="Nachricht senden" />
+                                    <input type="submit" class="submit" id="submit" value="Nachricht senden" disabled="disabled" />
                                 </fieldset>
                             </form>
+
+                            <div id="contact-alert-wrapper"></div>
                         </div>
 
 
@@ -689,8 +673,8 @@
                             <p class="subheading grey wow fadeInUp">Setzen Sie sich gerne mit unseren Partnern in Verbindung.</p>
                         </div>
 
-                        <div class="col-md-6">
-                            <a href="//www.wohnzeit.de" class="wow fadeInUp">
+                        <div class="col-md-offset-3 col-md-6">
+                            <a href="http://wohnzeit.de/" target="_blank" class="wow fadeInUp">
                                 <div class="gray-scale">
                                     <img height="150" src="img/partner/wohnzeit_590px_190px.jpg" class="img-responsive" alt="Wohnzeit">
                                 </div>
@@ -702,31 +686,15 @@
             </section>
             <!-- End Partner Section -->
 
-            <!-- Start Footer 1 -->
+            <!-- Start Footer -->
             <footer id="footer">
 
                 <!-- Start Footer-Widgets -->
 
                 <div class="footer-widgets">
-                    <div class="container"> 
+                    <div class="container">
 
-                            <div class="col-sm-5 col-md-4 col-footer">
-                                <div class="subscription">
-                                    <h4>Newsletter</h4>
-                                    <p>Melden Sie sich für unseren Newsletter an! Wir schicken Ihnen ausschießlich wichige News über Änderungen oder Neuerungen in unserem Unternehmen.</p>
-                                    
-                                    <form action="php/subscribe-mailchimp.php" method="post" id="subscribe-form" role="form">
-                                        <div class="form-validation alert"></div>
-                                        <div class="form-group subscribe-form-input">
-                                            <input type="email" name="email" id="subscribe-form-email" class="footer-subscribe-input" placeholder="Ihre E-Mail-Adresse" autocomplete="off" />
-                                            <button class="subscribe-form-submit btn-primary-full" data-loading-text="Lädt...">Newsletter anmelden</button>
-                                        </div>
-                                    </form>
-                                    
-                                </div>
-                            </div> 
-                            
-                            <div class="col-sm-offset-2 col-sm-5 col-md-offset-4 col-md-4 col-footer">
+                            <div class="col-sm-5 col-footer">
                                 <div class="contact">
                                     <h4>Besuchen Sie uns heute!</h4>
                                     <ul class="contact-details">
@@ -736,51 +704,22 @@
                                     </ul>
                                 </div>
                             </div>
-
-                        <!--
-                            <div class="col-md-3 col-sm-6 col-footer">
-                                <h4>About Vossen</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed in euismod nisi.</p>
-                                <p>Cras at ultrices erat, sed vulputate eros. Nunc at augue gravida est fermentum vulputate. Pellentesque et ipsum in dui malesuada tempus. Donec pellentesque.</p>
+                            
+                            <div class="col-sm-offset-2 col-sm-5 col-md-offset-3 col-md-4 col-footer">
+                                <h4>Webseiteninformationen</h4>
+                                <ul class="contact-details">
+                                    <li><p><i class="icon ion-chevron-right highlight"></i> © 2015 Webseite von <a href="mailto:moritz.ellmers@web.de" class="logo">Moritz Ellmers</a></p></li>
+                                    <li><p><i class="icon ion-chevron-right highlight"></i> Alle Rechte vorbehalten</p></li>
+                                    <li><p><i class="icon ion-chevron-right highlight"></i> <a href="impressum.html">Impressum</a></p></li>
+                                </ul>
                             </div>
-                        -->
 
                     </div>
                 </div>
                 <!-- End Footer Widgets -->
 
-				<div class="footer-copyright">
-					<div class="container">
-						<div class="row">
-								
-							<div class="col-sm-10">
-								<p>© 2015 Webseite von <a href="mailto:moritz.ellmers@web.de" class="logo">Moritz Ellmers</a>. Alle Rechte vorbehalten. </p>
-							</div>
-                            <div class="col-sm-2">
-                                <p><a href="impressum.html">Impressum</a></p>
-                            </div>
-                            <!-- Icons werden zurzeit nicht benötigt, können aber nachträglich eingefügt werden
-							<div class="col-md-6 col-sm-12">
-				                <ul id="social-icons">
-						            <li><a href="#"><i class="icon ion-social-twitter"></i></a></li> 	
-                                    <li><a href="#"><i class="icon ion-social-facebook"></i></a></li> 
-                                    <li><a href="#"><i class="icon ion-social-googleplus"></i></a></li> 
-                                    <li><a href="#"><i class="icon ion-social-instagram-outline"></i></a></li> 
-                                    <li><a href="#"><i class="icon ion-social-pinterest"></i></a></li>  
-                                    <li><a href="#"><i class="icon ion-social-skype"></i></a></li> 
-                                    <li><a href="#"><i class="icon ion-social-linkedin"></i></a></li> 
-                                    <li><a href="#"><i class="icon ion-social-dropbox"></i></a></li> 
-                                    <li><a href="#"><i class="icon ion-social-vimeo"></i></a></li> 
-                                    <li><a href="#"><i class="icon ion-social-youtube"></i></a></li>
-                                </ul>
-							</div>
-							-->
-						</div>
-					</div>
-				</div><!-- End Footer Copyright -->
-                
 			</footer>
-            <!-- End Footer 1 -->
+            <!-- End Footer -->
             
             <!-- Start Back To Top -->
             <div>
@@ -796,18 +735,15 @@
         <script src="js/plugins/smoothscroll.min.js"></script>
         <script src="js/plugins/revslider.min.js"></script> 
         <script src="js/plugins/bootstrap.min.js"></script>
-        <script src="js/plugins/waypoints.min.js"></script>
         <script src="js/plugins/parallax.min.js"></script>
         <script src="js/plugins/easign1.3.min.js"></script> 
         <script src="js/plugins/cubeportfolio.min.js"></script>
         <script src="js/plugins/owlcarousel.min.js"></script>
-        <script src="js/plugins/tweetie.min.js"></script>
-        <script src="http://maps.googleapis.com/maps/api/js"></script>
+        <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDB_8aVhRdI6XthwNf3I1WdegEhbOr5JZ8"></script>
         <script src="js/plugins/gmap3.min.js"></script>
         <script src="js/plugins/wow.min.js"></script>
-        <script src="js/plugins/counterup.min.js"></script>
         <script src="js/plugins/imagelightbox.min.js"></script>
-		<script src="js/scripts2.js"></script>
+		<script src="js/scripts.js"></script>
 
 	</body>
 </html>
