@@ -211,9 +211,10 @@ function recaptchaCallback(res) {
     Preloader
     ---------------------*/
     $(window).load(function(){
-        // Preloader 
-        $('.loader').fadeOut();
-        $('#preloader').delay(350).fadeOut();
+        var $wrapper = $('#loader-wrapper');
+        $wrapper.find('.loader').fadeOut();
+        $wrapper.delay(250).slideUp();
+        $("body").delay(250).removeClass("no-scroll");
     }); // End Window Load
     /* -------------------
     Page Hero Parallax
@@ -230,7 +231,7 @@ function recaptchaCallback(res) {
     $('.to-section a,.btn-scroll').bind('click', function(event) {
         var $anchor = $(this);
         $('html, body').stop().animate({
-            scrollTop: $($anchor.attr('href')).offset().top - 54
+            scrollTop: $($anchor.attr('href')).offset().top - 100
         }, 1000, 'easeInOutExpo');
         event.preventDefault();
     });

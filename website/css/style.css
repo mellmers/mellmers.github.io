@@ -38,7 +38,6 @@ Table of Contents:
 @import "animate.css";
 @import "cubeportfolio.min.css";
 @import "color.css";
-@import "myanimations.css";
 @import "mystyle.css";
 
 /*----- Fonts -----*/
@@ -87,7 +86,7 @@ a:focus, a:active, button::-moz-focus-inner, input[type="reset"]::-moz-focus-inn
         padding: 0 90px;
     }
 }
-@media (min-width: 768px) and (max-width: 992px)) {
+@media (min-width: 768px) and (max-width: 992px) {
     .container { 
         width: 100%;
         padding: 0 120px;
@@ -122,7 +121,6 @@ h4 {
     letter-spacing: 1px;
 }
 p {
-    color: #7a7a7a;
 	font-size: 18px;
 	line-height: 1.5;
 	font-weight: 900;
@@ -186,24 +184,6 @@ p {
 .p-info {
 	line-height: 1.8;
     font-size: 14px;
-}
-
-/* Preloader */
-#preloader {
-    position:fixed;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-    background-color:#fff;
-    z-index: 9999;
-}
-.loader {
-    position: absolute;
-    top: 50%;
-    left: 50%; 
-    margin-top: -12px;
-    margin-left: -12px;
 }
 
 /*----- Typography -----*/
@@ -439,7 +419,7 @@ p {
     font-size: 14px;
     letter-spacing: .5px; 
     font-weight: 900;
-    color: #ccc; 
+    color: #eee;
     z-index:999!important;
 }
 .tp-banner .home-subheading {
@@ -578,14 +558,14 @@ nav {
     nav { max-width: 1343px; }
 }
 .navbar {
-	min-height: 55px;
+	min-height: 80px;
 	border: none;
 }
 .navbar-default {
     position: fixed;
     background-color: #fff;
     border-radius: 0;
-	border-color: none;
+	border-color: transparent;
 	border-bottom: none;
 	top: 0;
 	left: 0;
@@ -598,10 +578,7 @@ nav {
     background-color: transparent;
 }
 .navbar-small {
-    background: #fff;
-    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
-	-moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.15);
-	box-shadow:0 1px 4px rgba(0, 0, 0, 0.15);
+    background: rgb(224, 132, 10);
 }
 .navbar-default .container {
 	position: relative;
@@ -629,7 +606,7 @@ nav {
     font-weight: 700;
     text-transform: uppercase;
 	height: 100%;
-	margin-top: 10px;
+	margin-top: 35px;
     margin-bottom: 10px;
     -webkit-transition: all 0.4s ease;
     -moz-transition: all 0.4s ease;
@@ -637,15 +614,9 @@ nav {
     -ms-transition: all 0.4s ease;
     transition: all 0.4s ease;
 }
-.navbar-alt .navbar-right {
-	margin-top: 35px;
-    margin-bottom: 10px;
-}
 .navbar-small .navbar-right {
-	height: 100%;
-	margin-top: 0px;
-    margin-bottom: 0px;
-} 
+	margin-top: 25px;
+}
 .navbar-alt .navbar-nav > li > a,
 .navbar-alt .navbar-nav > li > span {
 	color: #fff;
@@ -740,15 +711,20 @@ nav {
 
 
 
-/*Navbar Collapse*/  
+/*Navbar Collapse*/
 @media (max-width: 992px) {
     .navbar-default .navbar-collapse {
-        margin-top: 18px;
-        padding-right: 0px;
-        padding-left: 0px;
+        margin: 20px 0;
+        padding-right: 0;
+        padding-left: 0;
+        background-color: #222;
+    }
+    .navbar-default:not(.navbar-small) .navbar-collapse .navbar-right {
+        margin-bottom: 25px;
     }
     .navbar-small .navbar-collapse {
-        margin-top: 0px;
+        margin: 0;
+        background: inherit;
     }
     .navbar-header {
         float: none;
@@ -786,10 +762,10 @@ nav {
         float: none!important;
         margin: 0;
 	}
-    .navbar-default .navbar-toggle { 
+    .navbar-default .navbar-toggle {
         margin-top: 44px;
     }
-    .navbar-small .navbar-toggle { 
+    .navbar-small .navbar-toggle {
         margin-top: 11px;
     }
 	.navbar-nav>li {
@@ -811,14 +787,14 @@ nav {
     .collapse.in{
   		display:block !important;
 	}
-    .navbar-default .container { 
+    .navbar-default .container {
         width: 100%;
-    } 
+    }
     .navbar-small .container {
         padding-right: 0px;
         padding-left: 0px;
         width: 100%;
-    } 
+    }
     .navbar-default ul.nav li {
 		border-bottom: 1px dotted #2A2A2A;
 	}
@@ -841,69 +817,12 @@ nav {
 }
 .navbar-brand {
 	float: left;
-	height: 55px;
-	padding: 15px 0 15px 0px;
+	height: auto;
+	padding: 15px 0 15px 0;
 	font-size: 30px;
 	line-height: 20px;
 }
-/* Logo Big White */
 
-.navbar-default .navbar-brand .logo-big {
-	position:absolute;
-    opacity: 1;
-    margin-top: 11px;
-    -webkit-transition: all 0.4s ease;
-    -moz-transition: all 0.4s ease;
-    -o-transition: all 0.4s ease;
-    -ms-transition: all 0.4s ease;
-    transition: all 0.4s ease;
-}
-.navbar-default .navbar-brand .logo-small {
-	position:absolute;
-    height: 66px;
-    margin-top: 11px;
-    opacity: 0;
-    -webkit-transition: all 0.4s ease;
-    -moz-transition: all 0.4s ease;
-    -o-transition: all 0.4s ease;
-    -ms-transition: all 0.4s ease;
-    transition: all 0.4s ease;
-}
-.navbar-alt .navbar-brand .logo-big {
-    margin-top: 35px;
-}
-.navbar-alt .navbar-brand .logo-small {
-    margin-top: 35px;
-}
-/* End Logo Big White */
-/* Logo Small Black */
-.navbar-small .navbar-brand .logo-big {
-    position:absolute;
-    opacity: 0;
-    height: 66px;
-    margin-top: 3px;  
-    -webkit-transition: all 0.4s ease;
-    -moz-transition: all 0.4s ease;
-    -o-transition: all 0.4s ease;
-    -ms-transition: all 0.4s ease;
-    transition: all 0.4s ease;
-}
-.navbar-small .navbar-brand .logo-small {
-    position:absolute;
-    opacity: 1;
-    height: 50px;
-    margin-top: -12px;
-    width: auto;
-    -webkit-transition: all 0.4s ease;
-    -moz-transition: all 0.4s ease;
-    -o-transition: all 0.4s ease;
-    -ms-transition: all 0.4s ease;
-    transition: all 0.4s ease;
-    
-}
-/* End Logo Small Black */
-
- 
 @media (max-width: 768px) {
    .navbar-collapse {
       max-height: none;
@@ -2590,33 +2509,6 @@ footer a:hover {
 }
 .ion-7x {
     font-size: 7em;
-}
-/*----- Back to Top Button -----*/
-#back-to-top {
-    position: fixed;
-    color: #fff;
-    z-index: 100;
-    line-height: 40px;
-    bottom: -50px;
-    right: 20px;
-    display: none;
-    cursor: pointer;
-    border-radius: 2px;
-    height: 40px;
-    width: 40px;
-    display: block;
-    text-align: center;
-    transition: background-color 0.1s linear;
-    -moz-transition: background-color 0.1s linear;
-    -webkit-transition: background-color 0.1s linear;
-    -o-transition: background-color 0.1s linear;
-}
-#back-to-top:hover {
-    color: #fff;
-    background-color: #121212;
-}
-#back-to-top .icon {
-    font-size: 16px;
 }
 .to-top {
     cursor: pointer;
