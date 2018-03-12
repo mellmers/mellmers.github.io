@@ -1,11 +1,11 @@
 {
   "name": "Moritz-Ellmers-Website",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "homepage": "https://github.com/mellmers/mellmers.github.io",
   "authors": [
-    "Moritz Ellmers <moritz.ellmers@web.de>"
+    "Moritz Ellmers <info@moritzellmers.de>"
   ],
-  "description": "This is the first website from Moritz Ellmers.",
+  "description": "This is the website from Moritz Ellmers.",
   "main": "index.html",
   "keywords": [
     "web",

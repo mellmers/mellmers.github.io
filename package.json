@@ -1,7 +1,7 @@
 {
   "name": "Moritz-Ellmers-Website",
   "version": "0.0.1",
-  "description": "This is the first website from Moritz Ellmers.",
+  "description": "This is the website from Moritz Ellmers.",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,7 +19,7 @@
     "student",
     "informatik"
   ],
-  "author": "Moritz Ellmers <moritz.ellmers@web.de>",
+  "author": "Moritz Ellmers <info@moritzellmers.de>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mellmers/mellmers.github.io/issues"

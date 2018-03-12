@@ -45,8 +45,18 @@ body {
 /*Coming Soon Logo zentriert*/
 img.center {
   display: block;
-  margin-left: auto;
-  margin-right: auto; }
+  margin: 30px auto;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease; }
+  img.center:hover {
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2); }
 
 /*Fuullscreen Einstellungen -- f├╝r Coming Soon Seite ben├Âtigt*/
 .full-screen {
@@ -61,7 +71,7 @@ img.center {
 
 .full-screen-content {
   width: 1000px;
-  height: 600px;
+  height: 430px;
   position: absolute;
   left: 0;
   right: 0;

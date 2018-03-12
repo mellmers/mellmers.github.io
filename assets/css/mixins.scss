@@ -5,6 +5,14 @@
   transition: all $time ease;
 }
 
+@mixin scale($factor: 1) {
+  -webkit-transform: scale($factor);
+  -moz-transform: scale($factor);
+  -ms-transform: scale($factor);
+  -o-transform: scale($factor);
+  transform: scale($factor);
+}
+
 @mixin border-radius($r:0px) {
   -webkit-border-radius: $r;
   -moz-border-radius: $r;
